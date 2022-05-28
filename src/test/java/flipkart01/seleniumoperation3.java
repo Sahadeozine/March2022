@@ -75,24 +75,20 @@ public class seleniumoperation3
 	}
 	public static Hashtable< String, Object> clickonElement(Object[]inputparameter)
 	{
-		try
-		{
-		d.manage().timeouts().implicitlyWait(config.getImplicitlyWait(), TimeUnit.SECONDS);
-		String XPATH=(String) inputparameter[0];
-		 d.findElement(By.xpath(XPATH)).click();
-		
-		 outputParameters.put("STATUS", "PASS");	
-		 outputParameters.put("MESSAGE", "methodUsed; clickonElement,Input Given:"+inputparameter[0].toString());	
-		
-		
-		}
-		catch(Exception e)
-		{
-			outputParameters.put("STATUS", "FAIL");	
-			outputParameters.put("MESSAGE", "methodUsed; clickonElement,Input Given:"+inputparameter[0].toString());	
-					
-		} 
-		return outputParameters;
+		try{
+			d.manage().timeouts().implicitlyWait(config.getImplicitlyWait(), TimeUnit.SECONDS);
+			String xpath=(String) inputparameter[0];
+			d.findElement(By.xpath(xpath)).click();
+			
+			outputParameters.put("STATUS", "PASS");
+		    outputParameters.put("MESSAGE", "methodUsed: ClickonElement,Input Given"+inputparameter[0].toString());
+			}
+			catch(Exception e)
+			{
+				outputParameters.put("STATUS", "FAIL");
+			    outputParameters.put("MESSAGE", "methodUsed:ClickonElement,Input Given"+inputparameter[0].toString());
+			}
+			return outputParameters;
 
 	}
 	public static Hashtable< String, Object> mouseover(Object[]inputparameter) throws InterruptedException
@@ -191,95 +187,5 @@ public class seleniumoperation3
 
 	}
 
-  public static Hashtable< String, Object> main (String[]args) throws InterruptedException
-  {
-	  
-	  // browser launch
-	  
-	  Object[] input=new Object[2];
-	    input[0]="chrome";
-	    input[1]= "E:\\automation support\\chromedriver.exe";
-	    seleniumoperation3.browserlaunch(input);
-	 
-	    // open application
-	  Object[] input1=new Object[1];
-	    input1[0]="https://www.flipkart.com/";
-	    
-	     seleniumoperation3.openapplication();  
-	     
-	     //cancel the login page
-	     Object[] input2=new Object[1];
-	     input2[0]="//*[@class='_2KpZ6l _2doB4z']";
-	     seleniumoperation3.clickonElement(input2);
-	     
-	     // mouse
-	     Object[] input3=new Object[1];
-	     input3[0]="//*[@class='_1_3w1N']";
-	     seleniumoperation3.mouseover(input3);
-	     
-	     // click on my profile
-	     Object[] input4=new Object[1];
-	     input4[0]="//*[text()='My Profile']";
-	     seleniumoperation3.clickonElement(input4);
-	     
-	     // sendkeys
-	     Object[] input5=new Object[2];
-	     input5[0]="(//*[@type='text'])[2]";
-	     input5[1]="9588406397";
-	     seleniumoperation3.Sendkeys(input5);
-	     
-	     Object[] input6=new Object[2];
-	     input6[0]="//*[@type='password']";
-	     input6[1]="Sahadeo@123";
-	     seleniumoperation3.Sendkeys(input6);
-	     
-	     // click 0n log
-	      	Object[] input7=new Object[1];
-	      	input7[0]="//*[@class='_2KpZ6l _2HKlqd _3AWRsL']";
-	        seleniumoperation3.clickonElement(input7);
-	        
-	     // manage adress 
-	       Thread.sleep(5000);
-	       Object[] input8=new Object[1];
-	       input8[0]="(//*[@class='NS64GK'])[1]";
-	       seleniumoperation3.clickonElement(input8);
-	       
-	       Object[] input9=new Object[1];
-	       input9[0]="//*[@class='_2KpZ6l _3lI646 _3dESVI']";
-	       seleniumoperation3.clickonElement(input9);
-	       
-	       Object[] input10=new Object[2];
-	       input10[0]="(//*[@class='_1w3ZZo _2mFmU7'])[1]";
-	       input10[1]="Sahadeo";
-	       seleniumoperation3.Sendkeys(input10);
-	       
-	       Object[] input11=new Object[2];
-	       input11[0]="//*[@name='phone']";
-	       input11[1]= "9588406397";
-	       seleniumoperation3.Sendkeys(input11);
-	       
-	       Object[] input12=new Object[2];
-	       input12[0]="//*[@name='pincode']";
-	    	input12[1]="414006"; 
-	        seleniumoperation3.Sendkeys(input12);
-	        
-	        Object[] input13=new Object[2];
-	        input13[0]="(//*[@type='text'])[5]";
-	        input13[1]="nagar";
-	        seleniumoperation3.Sendkeys(input13);	
-	        
-	        Object[] input14=new Object[2];
-	        input14[0]="//*[@name='addressLine1']";
-	        input14[1]="A/p- Baburdi Ghumat";
-	        seleniumoperation3.Sendkeys(input14);
-	        
-	        Object[] input15=new Object[1];
-	        input15[0]="(//*[@class='_1XFPmK'])[1]";
-	        seleniumoperation3.clickonElement(input15);
-	        
-	        Object[] input16=new Object[1];
-	        input16[0]="(//*[@type='button'])[2]";
-	  return seleniumoperation3.clickonElement(input16);
-  }
   
 }

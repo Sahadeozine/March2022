@@ -28,15 +28,12 @@ public class Login
 	}
 	
 	@When ("^user cancle initial Login window$")
-	public void cancelLoginW()
-	{
-		 Object[] input2=new Object[1];
-	     input2[0]="//*[@class='_2KpZ6l _2doB4z']";
-	     seleniumoperation3.clickonElement(input2);
-	     
+	public void user_cancle_initial_Login_window() throws Throwable {
+		Object []input2=new Object[1];
+		input2[0]="//*[@class='_2KpZ6l _2doB4z']";
+		seleniumoperation3.clickonElement(input2);
 		
 	}
-	
 	@When ("^user navigate on Login button$")
 	public void navigateLogin() throws InterruptedException
 	{
